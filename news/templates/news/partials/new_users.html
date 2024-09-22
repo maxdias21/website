@@ -1,0 +1,8 @@
+<div id="new-users" class="container-secondary-news-style">
+    <h2>Novos usuários</h2>
+    <ul>
+        {% for user in five_users %}
+            <li><a class="event-color" href="{% url 'authors:user_profile' user.slug%}">{{user.username.first_name}} {{user.username.last_name}}</a> se registrou em {{user.username.date_joined}} 😊</li>
+        {% endfor %}
+    </ul>
+</div>

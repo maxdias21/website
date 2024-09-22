@@ -1,0 +1,13 @@
+<div id="left-secondary-news">
+    {% for post in posts %}
+         <div id="secondary-news-container">
+             {% if post.image %}
+                <a href="{% url 'news:read_news' post.slug%}"><img  src="{{ post.image.url }}"></a>
+             {% endif %}
+             <div>
+                <h4 style=""><a href="{% url 'news:read_news' post.slug%}">{{post.title}}</a> </h4>
+                <p style="color: #dd7961;">{{post.created_at}}</p>
+             </div>
+        </div>
+    {% endfor %}
+</div>

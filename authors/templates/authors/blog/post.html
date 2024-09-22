@@ -1,0 +1,10 @@
+{% for post in posts %}
+    <div class="posts-detail">
+        <a href="{% url 'blog:read_post' post.slug %}"><h2 style="color: black; font-size: 1.2rem;">{{post.title}}</h2></a>
+        {% if post.image %}
+            <a href="{% url 'blog:read_post' post.slug %}"><img src="{{post.image.url}}"></a>
+        {% endif %}
+        <p>{{post.description}}</p>
+    </div>
+    <hr>
+{% endfor %}

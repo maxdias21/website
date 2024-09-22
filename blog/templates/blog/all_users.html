@@ -1,0 +1,32 @@
+{% extends 'global/base.html' %}
+
+{% block 'content' %}
+    <div style="width: 90%; margin: 0 auto; margin-top:30px;">
+        {% include 'global/partials/messages.html' %}
+    </div>
+
+    <div class="all-users-container">
+        {% for user in users %}
+        <div id="search-profile">
+            <h1>{{user.username.first_name}} {{user.username.last_name}}</h1>
+
+            {% if user.profile_photo %}
+                <img src="{{user.profile_photo.url}}" alt="Foto de {{user.username.first_name}} {{user.username.last_name}}">
+            {% else %}
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+            {% endif %}
+
+            <p>{{user.description}}</p>
+
+            <span style="margin-top: 40px;"></span>
+            <div style="position: absolute; bottom: 0;">
+                {% if user.profile_status == 'Público' %}
+                    <a href="{% url 'authors:user_profile' user.slug %}" type="button" class="btn btn-success mt-3 mb-2">Ver Perfil</a>
+                {% else %}
+                    <button type="button" class="btn btn-danger mt-3 mb-2">Perfil Privado</button>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock 'content' %}

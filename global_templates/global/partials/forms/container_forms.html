@@ -1,0 +1,16 @@
+{% load static %}
+
+
+<div id="container-login">
+    <div id="text-login">
+        <p>Aprenda, conecte-se e descubra um mundo de conhecimento ao seu alcance.</p>
+    </div>
+    <div id="container-form">
+       {% load bootstrap5 %}
+        {% include 'global/partials/forms/form_bootstrap5.html' %}
+    </div>
+</div>
+<script type="module" src="{% static 'authors/static/js/input_validation.js' %}"></script>
+
+
+

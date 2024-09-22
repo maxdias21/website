@@ -1,0 +1,10 @@
+h1.search-term {
+    font-size: 2.3rem;
+}
+
+.highlight-search {
+    font-size: 2.3rem;
+    font-weight: bold;
+    text-decoration: underline;
+}
+

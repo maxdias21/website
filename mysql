@@ -1,0 +1,22 @@
+Apenas um tutorial para um amigo que pediu para ensinar a configurar o MySql no projeto Django
+Espero que ajude :)
+
+1 - Use o comando abaixo no terminal para o Django fazer a conexão com o MySql
+1.1 - pip install mysqlclient
+2 - Substitua seu database por esse
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'nome_do_seu_banco_de_dados',
+        'USER': 'usuario',
+        'PASSWORD': 'senha',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+2.1 - Preencha as suas informações e depois os dois comandos abaixo
+2.2 - python manage.py makemagrations
+2.3 - python manage.py migrate
+3 - O Django converte os models em tabelas automaticamente :)
+
+Espero ter ajudado!

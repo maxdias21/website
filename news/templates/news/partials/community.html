@@ -1,0 +1,12 @@
+{% load i18n %}
+
+<div class="container-secondary-news-style">
+    <h2>{% trans "Community" %}</h2>
+
+    {% for post in posts_blog %}
+        <div id="community-container">
+            <a href="{% url 'blog:read_post' post.slug %}"><img src="{{post.image.url}}"></a>
+            <p>{{post.title}}</p>
+        </div>
+    {% endfor %}
+</div>

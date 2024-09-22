@@ -1,0 +1,83 @@
+{% extends 'global/base.html' %}
+
+{% block 'content' %}
+    <div class="all-posts-container">
+        {% if posts %}
+        <h1 class="search-term">Posts encontrados com o termo <span class="highlight-search">{{search_term}}</span></h1>
+            {% for post in posts %}
+                <div class="all-posts">
+                    {% if post.image %}
+                        <img src="{{post.image.url}}">
+                    {% endif %}
+                    <div class="dont-break-out">
+                        <p class="mb-2">Postado em {{post.created_at}}</p>
+                        {% if post.title|length > 100 %}
+                            <h3>{{post.title|slice:":100"}}...</h3>
+                            <a href="{% url 'blog:read_post' post.slug %}" type="button" class="btn btn-primary mt-4">Veja mais...</a>
+                        {% else %}
+                            <h3  style="width: 100%; max-width: 100%;">{{post.title}}</h3>
+                            <a href="{% url 'blog:read_post' post.slug %}" type="button" class="btn btn-primary mt-4">Veja mais...</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <hr style="custom-hr">
+            {% endfor %}
+        {% else %}
+            <h2>Nenhum post encontrado</h2>
+        {% endif %}
+
+        <hr>
+        {% if news %}
+            <h1 class="search-term">Posts encontrados com o termo <span class="highlight-search">{{search_term}}</span></h1>
+            {% for post in news %}
+                <div class="all-posts">
+                    {% if post.image %}
+                        <img src="{{post.image.url}}">
+                    {% endif %}
+                    <div class="dont-break-out">
+                        <p class="mb-2">Postado em {{post.created_at}}</p>
+                        {% if post.title|length > 100 %}
+                            <h3>{{post.title|slice:":100"}}...</h3>
+                            <a href="{% url 'blog:read_post' post.slug %}" type="button" class="btn btn-primary mt-4">Veja mais...</a>
+                        {% else %}
+                            <h3  style="width: 100%; max-width: 100%;">{{post.title}}</h3>
+                            <a href="{% url 'blog:read_post' post.slug %}" type="button" class="btn btn-primary mt-4">Veja mais...</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <hr style="custom-hr">
+            {% endfor %}
+        {% else %}
+            <h2>Nenhuma notícia encontrada</h2>
+        {% endif %}
+
+        <hr>
+        {% if users %}
+            <h1 class="search-term">Usuários encontrados com o termo <span class="highlight-search">{{search_term}}</span></h1>
+            {% for user in users %}
+                <div class="all-posts">
+                    {% if user.profile_photo %}
+                        <img src="{{user.profile_photo.url}}">
+                    {% endif %}
+
+                    <div class="dont-break-out">
+                         <h2>{{user.username.first_name}} {{user.username.last_name}}</h2>
+                        <p class="mb-2">Conta criada em {{user.created_at}}</p>
+                        {% if user.description|length > 100 %}
+                            <h3>{{user.description|slice:":100"}}...</h3>
+                            <a href="{% url 'authors:user_profile' user.slug %}" type="button" class="btn btn-primary mt-4">Veja mais...</a>
+                        {% else %}
+                            <p  style="width: 100%; max-width: 100%; font-size: 1.1rem; color: #000; margin-top: 20px;">{{user.description}}</p>
+                            <a href="{% url 'authors:user_profile' user.slug %}" type="button" class="btn btn-primary mt-4">Ver Perfil...</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <hr style="custom-hr">
+            {% endfor %}
+        {% else %}
+            <h2>Nenhum usuário encontrado</h2>
+        {% endif %}
+    </div>
+
+
+{% endblock 'content' %}

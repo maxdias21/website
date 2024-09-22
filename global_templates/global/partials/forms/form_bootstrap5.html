@@ -1,0 +1,9 @@
+{% load bootstrap5 %}
+
+<form id="form" action="{{form_action_url}}" method="POST" enctype="multipart/form-data">
+    <h5 class="mb-4">{{title}}</h5>
+        {% include 'global/partials/messages.html' %}
+        {% csrf_token %}
+        {% bootstrap_form form %}
+    <button id="btn" type="submit" name="form_edit_user" class="btn btn-primary">Enviar</button>
+</form>

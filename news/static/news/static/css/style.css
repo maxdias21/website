@@ -1,0 +1,194 @@
+/* Notícia principal */
+.container-main-news {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+    gap: 20px;
+    padding: 10px;
+}
+
+#container-primary-news-left {
+    width: 60%;
+    height: 400px;
+    position: relative;
+}
+
+#container-primary-news-right {
+    width: 40%;
+    height: 400px;
+}
+
+#container-right-bottom {
+    height: 42%;
+    width: 100%;
+    position: relative;
+}
+
+#container-right-top {
+    height: 55%;
+    position: relative;
+}
+
+.container img {
+    height: 100%;
+    width: 100%;
+}
+
+#container-primary-news-left img, #container-right-top img, #container-right-bottom img{
+    width: 100%;
+    height: 100%;
+}
+
+.container-main-news p, #container-right-top p{
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: justify;
+    color: #fff;
+    text-shadow: 2px 2px 2px rgba(0,0,0,1.8);
+    font-weight: 700;
+}
+
+/*Fim Notícia principal */
+
+
+/* Notícias secundárias */
+#container-news {
+    display: flex;
+    margin-top: 40px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+
+/* Apenas para definir o tamanho dos meus dois menus laterais */
+#left-secondary-news {
+    width: 60%;
+}
+
+#right-secondary-news {
+    width: 40%;
+}
+
+#left-secondary-news, #right-secondary-news {
+    margin-bottom: 50px;
+}
+
+/* Colocar algo em baixo da outro */
+.container-secondary-news {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Deixar um texto do lado da imagem */
+#community-container, #secondary-news-container {
+    display: flex;
+    margin-top: 20px;
+}
+
+.container-secondary-news-style {
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    padding: 10px;
+}
+
+
+
+#secondary-news-container img, #community-container img {
+    width: 120px;
+    height: 120px;
+}
+
+#container-news p {
+  margin-top: 4px;
+  margin-left: 20px;
+}
+
+/* Fim Secondary News */
+
+/* New Users */
+
+@keyframes changeColor {
+    from {
+        color: #095685;
+
+    }
+
+    to {
+        color: #acd5ef;
+    }
+}
+
+.event-color {
+    animation: changeColor 2s ease-in-out infinite;
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+#new-users li {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+#left-secondary-news h4 a {
+    color: #3d3636;
+    transition: color 0.5s
+}
+
+#left-secondary-news p, #left-secondary-news h4 {
+    margin-left: 15px;
+    padding: 0;
+}
+
+#left-secondary-news p {
+    font-size: 0.9rem;
+}
+
+
+#left-secondary-news h4 a:hover {
+    color: #756b6b;
+}
+
+/* Fim New Users */
+
+
+
+
+@media only screen and (max-width: 800px) {
+    #container-news {
+        flex-direction: column;
+        width: 95%;
+    }
+
+    .container-secondary-news {
+        width: 100%;
+    }
+
+    #left-secondary-news, #right-secondary-news {
+        width: 100%;
+    }
+
+    .container {
+        flex-direction: column;
+        width: 95%;
+    }
+
+    #container-primary-news-left {
+        width: 100%;
+    }
+
+    #container-primary-news-right {
+        width: 100%;
+    }
+
+    .container-main-news  {
+        flex-direction: column;
+        width: 95%;
+    }
+}
+
+

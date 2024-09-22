@@ -1,0 +1,22 @@
+{% extends 'global/base.html' %}
+
+{% block 'content' %}
+    <div class="info-container info">
+        <h2 >Entre em contato comigo!</h2>
+        <p class="mb-4">Não está funcionando 😅</p>
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Seu email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+
+            <div class="mb-3">
+                <label for="mensagem" class="form-label">Mensagem</label>
+                <textarea class="form-control" id="mensagem" rows="4"></textarea>
+            <div class="form-text">Escreva sua mensagem aqui.</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+{% endblock 'content' %}

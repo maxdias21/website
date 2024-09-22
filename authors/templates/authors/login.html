@@ -1,0 +1,32 @@
+{% extends 'global/base.html' %}
+{% load static %}
+
+{% block 'content' %}
+    <div id="container-login">
+        <div id="text-login">
+            <p>Aprenda, conecte-se e descubra um mundo de conhecimento ao seu alcance.</p>
+        </div>
+        <div id="container-form">
+
+            <form id="form" action="{% url 'authors:login' %}" method="POST">
+                <h5 class="mb-4">Bem-vindo de volta! Faça login para acessar sua conta e aproveitar todos os recursos do nosso site</h5>
+                {% include 'global/partials/messages.html' %}
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="username" class="form-label">Usuário</label>
+                    <input type="text" class="form-control" id="username" name="username" value="{{username}}">
+                    <span id="help-username" class="error">
+                        {% if not username %}Nome de usuário é um campo obrigatório. {% endif %}
+                    </span>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                    <span id="help-password" class="error">A senha é um campo obrigatório.</span>
+                </div>
+                <button id="btn" type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </div>
+<script type="module" src="{% static 'authors/static/js/input_validation.js' %}"></script>
+{% endblock 'content' %}

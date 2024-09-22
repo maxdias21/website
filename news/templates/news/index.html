@@ -1,0 +1,37 @@
+{% extends 'global/base.html' %}
+
+{% block 'content' %}
+    <div class="container-main-news">
+        <div id="container-primary-news-left">
+            {% if first_news %}
+                <p style="font-size: 2rem;">{{first_news.title}}</p>
+                <a href="{% url 'news:read_news' first_news.slug %}"><img src="{{first_news.image.url}}"></a>
+            {% endif %}
+        </div>
+        <div id="container-primary-news-right">
+            <div id="container-right-top">
+                {% if second_news %}
+                    <p style="font-size: 1.1rem;">{{second_news.title}}</p>
+                    <a href="{% url 'news:read_news' second_news.slug %}"><img src="{{second_news.image.url}}"></a>
+                {% endif %}
+            </div>
+            <div style="margin-top: 3%;"></div>
+            <div id="container-right-bottom">
+                {% if third_news %}
+                    <p style="font-size: 1.1rem;">{{third_news.title}}</p>
+                    <a href="{% url 'news:read_news' third_news.slug %}"><img src="{{third_news.image.url}}"></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div id="container-news">
+        {% include 'news/partials/secondary_news.html' %}
+        <div class="container-secondary-news" id="right-secondary-news">
+            {% include 'news/partials/new_users.html' %}
+            {% include 'news/partials/community.html' %}
+        </div>
+    </div>
+{% endblock 'content' %}

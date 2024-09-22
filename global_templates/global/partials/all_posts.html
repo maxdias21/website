@@ -1,0 +1,26 @@
+{% extends 'global/base.html' %}
+
+{% block 'content' %}
+    <div class="all-posts-container">
+        {% for post in posts %}
+            <div class="all-posts">
+                {% if post.image %}
+                    <img src="{{post.image.url}}">
+                {% endif %}
+                <div class="dont-break-out">
+                    <p class="mb-2">Postado em {{post.created_at}}</p>
+                    {% if post.title|length > 100 %}
+                        <h3>{{post.title|slice:":100"}}...</h3>
+                        <a href="{% url 'blog:read_post' post.slug %}" type="button" class="btn btn-primary mt-4">Veja mais...</a>
+                    {% else %}
+                        <h3  style="width: 100%; max-width: 100%;">{{post.title}}</h3>
+                        <a href="{% url 'blog:read_post' post.slug %}" type="button" class="btn btn-primary mt-4">Veja mais...</a>
+                    {% endif %}
+                </div>
+            </div>
+        <hr style="custom-hr">
+        {% endfor %}
+    </div>
+
+
+{% endblock 'content' %}

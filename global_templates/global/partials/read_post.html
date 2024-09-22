@@ -1,0 +1,38 @@
+
+<div id="container-read-news">
+    <div class="container-content-read-news">
+        <h1>{{post.title}}</h1>
+        <p class="description">{{post.description | safe}}</p>
+        <div class="container-flex">
+            <div>
+                <p class="author-post">Por {{post.author.username}}</p>
+                <p class="post-date">{{post.created_at}}</p>
+            </div>
+             <div class="container-logo">
+                <a href=""><i class="logo fa-brands fa-facebook" style="color: #3b5998;"></i></a>
+                <a href=""><i class="logo fa-brands fa-whatsapp" style="color: #25D366;"></i></a>
+             </div>
+        </div>
+         <hr>
+        <div>
+            <div class="container-post-news">
+                {% if post.image %}
+                    <img src="{{post.image.url}}">
+                {% endif %}
+                <p>{{post.content | safe}}</p>
+
+                    <div class="more-posts">
+                        <hr style="margin-top:60px;">
+                        <h2>Veja também</h2>
+                        {% for post in last_posts %}
+                            {% if post.image %}
+                                <a href="{% url 'blog:read_post' post.slug %}"><img class="animation-image" style="margin-bottom: 25px; margin-top: 20px;" src="{{post.image.url}}"></a>
+                            {% endif %}
+                        <a href="{% url 'blog:read_post' post.slug %}"><h4>{{post.title}}</h4></a>
+                            <hr style="margin-top:30px;">
+                        {% endfor %}
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

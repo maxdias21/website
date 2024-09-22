@@ -1,0 +1,44 @@
+{% extends 'global/base.html' %}
+{% load static %}
+
+{% block 'content' %}
+    <div id="container-my-profile">
+        <div class="container-profile">
+
+            <h2>Apresentação</h2>
+
+            <h3>{{profile.username.first_name}} {{profile.username.last_name}}</h3>
+            {% if profile.profile_photo %}
+                <img src="{{profile.profile_photo.url}}">
+            {% else %}
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+            {% endif %}
+            <p>Mora em {{profile.current_city}}</p>
+            <p>Nasceu em {{profile.hometown}}</p>
+            <p>{{profile.get_marital_status_display}}</p>
+            <p>Data de criação da conta: {{profile.username.date_joined  }}</p>
+            <p>Último acesso: {{profile.username.last_login}}</p>
+
+            {% include 'global/partials/modal.html' %}
+            <hr>
+            {% include 'global/partials/modal_form.html' %}
+        </div>
+        <div class="container-posts">
+            {% include 'global/partials/messages.html' %}
+            <div class="container-post">
+                <h2>Meus Posts</h2>
+                <div class="btn-info">
+                  <a href="{% url 'blog:create_post' %}" class="btn btn-info">
+                  Add Post
+                </a>
+                </div>
+                {% if posts %}
+                    {% include 'authors/blog/post.html' %}
+                {% else %}
+                    <h4 style="margin: 0; grid-row: 2;">Você ainda não publicou nada :(</h4>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+<script src="{% static 'utils/js/modal.js' %}"></script>
+{% endblock 'content' %}

@@ -1,0 +1,68 @@
+Tutorial de Traduções do Django
+
+Para um amigo que pediu o tutorial de como usar as traduções do Django, espero ter ajudado :)
+
+O exemplo que vou usar é o seguinte: meus modelos estão em inglês e vou traduzir para o português caso o navegador da pessoa
+esteja configurado para o idioma pt_BR.
+
+Certifique-se de ter o GNU gettext tools 0.15 instalado na sua máquina.
+1.1. Link do site: https://www.gnu.org/software/gettext/
+
+Na raiz do seu projeto, crie um diretório chamado locale.
+
+Execute o seguinte comando no terminal:
+3.1. Certifique-se de estar na raiz do seu projeto.
+3.2. django-admin makemessages -l pt_BR
+3.3. Para traduzir, você pode usar gettext ou gettext_lazy.
+3.4. O primeiro renderiza de forma imediata. O segundo renderiza de forma mais lenta.
+3.5. No arquivo Authors/model.py, use gettext ou gettext_lazy para que o Django saiba que você quer traduzir o campo.
+
+Agora que você usou gettext ou gettext_lazy, execute os comandos abaixo:
+4.1. python manage.py makemigrations
+4.2. python manage.py migrate
+4.3. django-admin compilemessages
+
+Vá para a pasta locale → pt_BR → LC_MESSAGES → django.po.
+
+Aqui é a hora de traduzir. O que cada linha faz:
+6.1. #: .\authors\models.py:10 → mostra a linha onde você usou gettext ou gettext_lazy.
+6.2. msgid "Username" → o nome do campo que você colocou usando gettext ou gettext_lazy.
+6.3. msgstr "" → aqui você coloca a sua tradução (exemplo: "Usuário").
+
+Após fazer as traduções, execute o comando:
+7.1. django-admin compilemessages
+
+Em settings.py, adicione este comando em MIDDLEWARES:
+8.1. 'django.middleware.locale.LocaleMiddleware',
+
+Em settings.py, crie esta lista:
+9.1. LANGUAGES = [
+('en', 'English'),
+('pt-br', 'Portuguese (Brazil)'),
+]
+
+Certifique-se em settings.py que estas variáveis recebem True:
+10.1. USE_I18N = True
+10.2. USE_TZ = True
+
+Extra - Traduzir um template HTML
+
+Habilite a tag {% load i18n %}.
+Há duas formas de traduzir:
+2.1. <h2>{% trans "Community" %}</h2>
+2.2. {% blocktrans %}<h2>Community</h2>{% endblocktrans %}
+Não esqueça do comando:
+3.1. django-admin makemessages -l pt_BR
+Em django.po:
+4.1. #: .\news\templates\news\partials\community.html:2
+4.2. msgid "Community"
+4.3. msgstr "Comunidade"
+Use o comando:
+5.1. django-admin compilemessages.
+Dica: Eu traduzi do inglês para pt-br; no caso, apenas o template "community" está em inglês para te ajudar.
+
+Documentação oficial:
+https://docs.djangoproject.com/en/5.1/topics/i18n/translation/
+
+Dica: Eu fiz isso no Windows. Se você receber o erro AttributeError: module 'locale' has no attribute 'normalize', delete tudo que tiver __init__.py na pasta locale e veja se funciona.
+

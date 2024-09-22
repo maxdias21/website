@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-15 09:59-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\authors\models.py:11
+msgid "Username"
+msgstr "Usuário"
+
+#: .\authors\models.py:12
+msgid "Age"
+msgstr "Idade"
+
+#: .\authors\models.py:45
+msgid "Hometown"
+msgstr "Cidade Natal"
+
+#: .\authors\models.py:78 .\authors\models.py:81
+msgid "Current City"
+msgstr "Cidade atual"
+
+#: .\authors\models.py:79
+msgid "Sex"
+msgstr "Sexo"
+
+#: .\authors\models.py:82
+msgid "Description"
+msgstr "Descrição"
+
+#: .\authors\models.py:84
+msgid "Profile Status"
+msgstr "Status do Perfil"
+
+#: .\authors\models.py:85
+msgid "Created at"
+msgstr "Data de Criação"
+
+#: .\authors\models.py:86
+msgid "Updated at"
+msgstr "Última Modificação"
+
+#: .\authors\models.py:89
+msgid "Profile Photo"
+msgstr "Foto do Perfil"
+
+#: .\authors\models.py:90
+msgid "Is active"
+msgstr "Está Ativo"
+
+#: .\authors\models.py:99 .\authors\models.py:100
+msgid "Authors"
+msgstr "Autores"
+
+#: .\blog\models.py:8 .\blog\models.py:9
+msgid "Post Blog"
+msgstr ""
+
+#: .\news\models.py:18 .\news\models.py:19
+msgid "News"
+msgstr ""
+
+#: .\news\templates\news\partials\community.html:2
+msgid "Community"
+msgstr "Comunidade"

@@ -1,0 +1,15 @@
+.info-container {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.info h1 {
+    margin-bottom: 25px;
+}
+
+.info p {
+    letter-spacing: 0.5px;
+    text-align: justify;
+}
